@@ -52,27 +52,82 @@
 // alert(objSumm(salaries));
 
 
-function multiplyNumeric(obj)
+//3 function multiplyNumeric(obj)
+// {
+//     for (key in obj)
+//     {
+//         if(typeof obj[key] != "string")
+//         {
+//             obj[key]*=2;
+//         }
+//     }
+//     return obj;
+// }
+// // до вызова функции
+// let menu = {
+//   width: 200,
+//   height: 300,
+//   title: "My menu"
+// };
+
+// menu=multiplyNumeric(menu);
+
+// console.log(menu);
+
+
+let spkmo= {
+  ras: [{
+    name: 'ras077',
+    students: 22
+  }, {
+    name: 'ras067',
+    students: 20
+  }],
+
+  isp: {
+    sites: [{
+      name: 'isp079',
+      students: 30
+    }, {
+      name: 'isp089',
+      students: 27
+    }],
+
+    pi: [{
+      name: 'pi0089',
+      students: 25
+    }]
+  }
+};
+function studentCounter(obj)
 {
+    studentSumm=0;
     for (key in obj)
     {
-        if(typeof obj[key] != "string")
+        for (key2 in obj[key])
         {
-            obj[key]*=2;
+        if(typeof obj[key][key2]["students"] !="undefined")
+        {
+            studentSumm+=obj[key][key2]["students"];
+            
+        }
+        else
+        {
+            for (key3 in obj[key][key2])
+            {
+                if(typeof obj[key][key2][key3]["students"] !="undefined")
+        {
+            studentSumm+=obj[key][key2][key3]["students"];
+         
+        }
+            }
+        }
         }
     }
-    return obj;
+    return studentSumm;
 }
-// до вызова функции
-let menu = {
-  width: 200,
-  height: 300,
-  title: "My menu"
-};
 
-menu=multiplyNumeric(menu);
-
-console.log(menu);
+alert(studentCounter(spkmo));
 
 
     </script>
