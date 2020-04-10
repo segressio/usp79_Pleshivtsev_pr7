@@ -28,7 +28,7 @@
 // alert( isEmpty(schedule) ); // false
 
 
-// let salaries = {
+//2 let salaries = {
 //   John: 100,
 //   Ann: 160,
 //   Pete: 130
@@ -52,7 +52,27 @@
 // alert(objSumm(salaries));
 
 
+function multiplyNumeric(obj)
+{
+    for (key in obj)
+    {
+        if(typeof obj[key] != "string")
+        {
+            obj[key]*=2;
+        }
+    }
+    return obj;
+}
+// до вызова функции
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
 
+menu=multiplyNumeric(menu);
+
+console.log(menu);
 
 
     </script>
